@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: cts-pod
-        image: cts:latest
+        image: cts
         imagePullPolicy: Never
         ports:
         - containerPort: 8080
@@ -36,10 +36,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: cts
+  app: cts
 spec:
   selector:
     app: cts
-   type: LoadBalancer
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 1235

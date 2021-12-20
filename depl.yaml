@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cts-depl
+  name: cts
   labels:
     app: cts
 spec:
@@ -35,10 +35,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: cts-service
+  name: cts
 spec:
   selector:
-    app: 
+    app: cts
    type: LoadBalancer
   ports:
     - protocol: TCP

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cts-depl
+  labels:
+    app: cts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cts
+  template:
+    metadata:
+      labels:
+        app: cts
+    spec:
+      containers:
+      - name: cts-pod
+        image: cts:latest
+         imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        # env:
+        # - name: MONGO_INITDB_ROOT_USERNAME
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: mongo-secret
+        #       key: mongo-root-username
+        # - name: MONGO_INITDB_ROOT_PASSWORD
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: mongo-secret
+        #       key: mongo-root-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cts-service
+spec:
+  selector:
+    app: 
+   type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 1235
+      targetPort: 8080
+      # nodePort: 30001

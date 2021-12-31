@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/cts")
 public class IPaddresscontroller {
 
     private RestTemplate restTemplate = new RestTemplate();

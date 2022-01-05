@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: cts-pod
-        image: cts
+        image: msp-registry.sidhcmsp.nutanix.com:5001/cts
         imagePullPolicy: Never
         ports:
         - containerPort: 8080

@@ -4,8 +4,6 @@ metadata:
   name: cts
   labels:
     app: cts
-  annotations:
-    service.msp.ntnx.io/lb: pc-internal
 spec:
   replicas: 1
   selector:
@@ -40,6 +38,8 @@ metadata:
   name: cts
   labels:
     app: cts
+  annotations:
+    service.msp.ntnx.io/lb: pc-internal
 spec:
   selector:
     app: cts
